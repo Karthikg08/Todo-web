@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<head>
+  <title>
+    Todo List
+  </title>
+  <link rel="stylesheet" href="Todo.css">
+
+ 
+</head>
+<body class="body">
+  <div class="todo-webapp">
+    <div class="todo-warn"></div>
+    <div class="todo-cont">
+      <input class="input-todo js-input" type="search" placeholder="Enter todo" onkeydown="keyPress(event)">
+      <input type="date" class="js-duedate-input duedate-input">
+      <button class="add-butt" onclick="
+      todo()
+      " >Add</button>
+      <div class="js-addtoweb addtoweb-css"></div>
+    </div>
+  </div>
+
+
+  <script src="Todo.js"></script>
+</body>
