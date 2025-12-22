@@ -5,22 +5,18 @@
 
   function renderTodo(){
     let todolistHTML ='';
-
-  for (let i=0; i < todoList.length; i++){
-    const taskobject = todoList[i];
-    const name = taskobject.name
-    const duedate = taskobject.duedate
+    todoList.forEach((taskobject,index)=>{
+      
+    const {name, duedate} = taskobject;
     let html = `
-    <div>${name}</div>
-    <div>${duedate}</div>
+   <div class="todo-name">${name}</div>
+    <div class="todo-date">${duedate}</div>
     <button class="delete-butt"
-    onclick="todoList.splice(${i}, 1); renderTodo();">
-    Delete</button>`;
+    onclick="todoList.splice(${index}, 1); renderTodo();">
+    Delete</button> `;
     todolistHTML += html;
     console.log(todolistHTML)
-    
-
-   }
+})
   
    document.querySelector('.js-addtoweb').innerHTML = todolistHTML;
   } 
@@ -37,7 +33,7 @@
     const warning = warn;
 
     if (inputDuedate==='' || inputValue===''){
-      warning.innerHTML = " Don't forget to set a due date for your task.";
+      warning.innerHTML = " Please make sure to enter a task name and a due date.";
     }else{
        warning.innerHTML ='';
 
@@ -45,28 +41,15 @@
       name: inputValue,
       duedate: inputDuedate
     });
-   
     }
 
-    
-    
     console.log(todoList)
-
-   
-
     inputElement.value =''
     duedateInput.value =''
     
     renderTodo()
    }
-   
-
     //document.querySelector('.js-addtoweb').innerHTML = todolistonWeb;
-
-
-   
-
-
 
    function keyPress(event){
     if(event.key === 'Enter') {
