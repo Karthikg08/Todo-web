@@ -38,10 +38,14 @@
     .todo-task{
       background-color: thistle;
     }
+    .todo-name{
+      word-break:break-word;
+      overflow-wrap: break-word;
+    }
 
     .todo-name,.todo-date{
-      display: grid;
-      justify-items: center;
+      text-align: center;
+      
     }
     .delete-butt{
       padding: 8px 8px ;

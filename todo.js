@@ -11,15 +11,21 @@
     let html = `
    <div class="todo-name">${name}</div>
     <div class="todo-date">${duedate}</div>
-    <button class="delete-butt"
-    onclick="todoList.splice(${index}, 1); renderTodo();">
-    Delete</button> `;
+    <button class="delete-butt js-delete-butt">Delete</button> `;
     todolistHTML += html;
     console.log(todolistHTML)
-})
+    })
   
    document.querySelector('.js-addtoweb').innerHTML = todolistHTML;
-  } 
+
+   document.querySelectorAll('.js-delete-butt').forEach((deleteButton, index) => {
+     deleteButton.addEventListener('click', () => {
+       todoList.splice(index, 1); renderTodo();
+     })
+   })
+  }  
+
+
   //todo function html pull to js
    function todo(){
     let inputElement = document.querySelector('.js-input');
